@@ -4,9 +4,9 @@ app = Flask(__name__)
 
 
 books_data = [
-	{'id':0, 'title':'Lord of the Rings', 'author':'J.R. Tolkien', 'category':'Fantasy', 'year': 1968},
-	{'id':1, 'title':'Pet Semetary', 'author':'Stephen King', 'category':'Horror', 'year': 1979},
-	{'id':2, 'title':'War and Peace', 'author':'Leo Tolstoy', 'category':'Fiction', 'year': 1962}
+	{'id':0, 'title':'Lord of the Rings', 'author':'J.R. Tolkien', 'category':'Fantasy', 'year': 1968, 'cover': 'lord-of-the-rings.jpg'},
+	{'id':1, 'title':'Pet Semetary', 'author':'Stephen King', 'category':'Horror', 'year': 1979, 'cover': 'pet-sematary.jpg'},
+	{'id':2, 'title':'War and Peace', 'author':'Leo Tolstoy', 'category':'Fiction', 'year': 1962, 'cover': 'war-and-peach.jpg'}
 ]
  
 

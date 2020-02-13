@@ -13,5 +13,6 @@ git branch -a
 git checkout <branch-name>
 
 # To run the app
+source venv/bin/activate
 export FLASK_ENV=development
 flask run

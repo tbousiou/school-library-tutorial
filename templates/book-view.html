@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Book View{% endblock %}
+
+{% block content %}
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Books</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+              <div class="btn-group mr-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+              </div>
+              <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <span data-feather="calendar"></span>
+              This week
+              </button>
+            </div>
+          </div>
+          <h2>Section title</h2>
+        
+
+          <div class="media">
+            <img src="https://dummyimage.com/200x300/aaa/fff
+" class="mr-3" alt="...">
+            <div class="media-body">
+              <h3 class="mt-0">{{ book.title }}</h3>
+              <p>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+              </p>
+              <p>Author: {{book.author}}</p>
+              <p>Category: <span class="badge badge-secondary">{{book.category}}</span></p>
+              <p>Year: {{book.year}}</p>
+            </div>
+          </div>
+
+        </main>
+
+
+{% endblock %}

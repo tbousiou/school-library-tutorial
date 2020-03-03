@@ -12,6 +12,11 @@
 	git branch -a
 	git checkout <branch-name>
 
+## To reset Database
+	rm data.db
+	sqlite3 data.db < school-library-schema.sql
+
+
 ## To run the app
 	source venv/bin/activate   
 	export FLASK_ENV=development

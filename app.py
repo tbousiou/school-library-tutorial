@@ -21,7 +21,7 @@ def index():
 def books():
 	db = get_db()
 	
-	query = "SELECT * FROM books";
+	query = "SELECT * FROM books"
 	cur = db.execute(query)
 	results = cur.fetchall()
 	
@@ -40,11 +40,38 @@ def book_view(id):
 
 @app.route('/members')
 def members():
-    return render_template('members.html')
+	db = get_db()
+
+	query = "SELECT * FROM members"
+	cur = db.execute(query)
+	results = cur.fetchall()
+
+	return render_template('members.html', members=results)
+
+
+@app.route('/member/view/<int:id>')
+def member_view(id):
+	db = get_db()
+	query = "SELECT * FROM members WHERE id = ?"
+	cur = db.execute(query, [id])
+	result=cur.fetchone()
+
+	return render_template('member-view.html', member=result)
 
 @app.route('/loans')
 def loans():
-    return render_template('loans.html')
+	db = get_db()
+
+	query = """
+				SELECT loans.id AS id, checkout_date, checkin_date, title, first_name, last_name
+				FROM loans
+				JOIN books ON loans.book_id = books.id
+				JOIN members ON loans.member_id = members.id;
+			"""
+	cur = db.execute(query)
+	results = cur.fetchall()
+
+	return render_template('loans.html', loans=results)
 
 
 @app.route('/reports')

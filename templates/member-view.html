@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
-{% block title %}Book Details{% endblock %}
+{% block title %}Member Details{% endblock %}
 
 {% block content %}
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1>Book details</h1>
+            <h1>Member</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -18,19 +18,18 @@
               </button>
             </div>
           </div>
-          <h2>Section title</h2>
+          <h2>Member info</h2>
           <div class="media">
-            <img src="{{url_for('static', filename='images/')}}{{book.cover}}" class="mr-3" width="200" alt="...">
+            <img src="{{url_for('static', filename='images/')}}{{member.avatar}}" class="mr-3" width="200" alt="...">
             <div class="media-body">
-              <h3 class="mt-0">{{ book.title }}</h3>
+              <h3 class="mt-0">{{ member.first_name }} {{ member.last_name }}</h3>
               <p>
               Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
               </p>
-              <p>Author: {{book.author}}</p>
-              <p>Category: <span class="badge badge-secondary">{{book.category}}</span></p>
-              <p>Year: {{book.year_published}}</p>
-              <p>ISBN: {{book.isbn}}</p>
-              <p>Copies: <span class="badge badge-secondary">{{book.copies}}</span></p>
+              <p>Role: {{member.role}}</p>
+              <p>Phone: 88833388</p>
+              <p>Email: nomail@mail.com</p>
+              <p>Books loaned: <span class="badge badge-secondary">3</span></p>
             </div>
           </div>
 

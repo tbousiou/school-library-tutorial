@@ -31,35 +31,15 @@
                 </tr>
               </thead>
               <tbody>
+                {% for loan in loans %}
                 <tr>
-                  <td>1</td>
-                  <td>2019-11-01</td>
-                  <td>Lord of the Rings</td>
-                  <td>Teo Bous</td>
-                  <td>2019-12-05</td>
+                  <td>{{ loan.id }}</td>
+                  <td>{{ loan.checkout_date }}</td>
+                  <td>{{ loan.title }}</td>
+                  <td>{{ loan.first_name }} {{ loan.last_name }}</td>
+                  <td>{{ loan.checkin_date }}</td>
                 </tr>
-                <tr>
-                  <td>1</td>
-                  <td>2019-12-20</td>
-                  <td>Lord of the Rings</td>
-                  <td>Teo Bous</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>2019-12-01</td>
-                  <td>Lord of the Rings</td>
-                  <td>Teo Bous</td>
-                  <td>2019-12-22</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>2019-12-01</td>
-                  <td>Lord of the Rings</td>
-                  <td>Teo Bous</td>
-                  <td>-</td>
-                </tr>
-                
+                {% endfor %}
               </tbody>
             </table>
           </div>

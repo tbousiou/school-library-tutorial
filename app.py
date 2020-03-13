@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, request, redirect, url_for
 from database import connect_db, get_db
 
 app = Flask(__name__)
@@ -36,6 +36,25 @@ def book_view(id):
 	result=cur.fetchone()
 
 	return render_template('book-view.html', book=result)
+
+@app.route('/book/add', methods = ['GET', 'POST'])
+def book_add():
+	db = get_db()
+	if request.method == 'POST':
+		title = request.form['title']
+		description = request.form['description']
+		author = request.form['author']
+		isbn = request.form['isbn']
+
+		query = 'insert into books (title, description, author, isbn) values (?, ?, ?, ?)'
+		db.execute(query, [title, description, author, isbn])
+		db.commit()
+
+		print("submited", title)
+		return redirect(url_for('books'))
+
+
+	return render_template('book-add.html')
 
 
 @app.route('/members')

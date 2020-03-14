@@ -1,8 +1,11 @@
+import os
 from flask import Flask, render_template, g, request, redirect, url_for
 from database import connect_db, get_db
 
 app = Flask(__name__)
 
+app.config['COVERS_UPLOAD_FOLDER'] = 'static/uploads/covers'
+app.config['AVATARS_UPLOAD_FOLDER'] = 'static/uploads/avatars'
 
 
 # Για να κλείνει αυτόματα η βάση δεδομέων
@@ -49,11 +52,17 @@ def book_add():
 		year = request.form['year']
 		copies = request.form['copies']
 
-		query = 'insert into books (title, description, author, isbn, category, year_published, copies) values (?, ?, ?, ?, ?, ?, ?)'
-		db.execute(query, [title, description, author, isbn, category, year, copies])
+		if request.files:
+			cover = request.files['cover']
+			abs_path = os.path.abspath(app.config['COVERS_UPLOAD_FOLDER'])
+			cover.save(os.path.join(abs_path, cover.filename))
+
+
+		query = 'insert into books (title, description, author, isbn, category, year_published, copies, cover) values (?, ?, ?, ?, ?, ?, ?, ?)'
+		db.execute(query, [title, description, author, isbn, category, year, copies, cover.filename])
 		db.commit()
 
-		print("submited", title)
+		print("submited", cover.filename)
 		return redirect(url_for('books'))
 
 

@@ -5,22 +5,22 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
       <h1>Add Member</h1>
       <div class="btn-toolbar mb-2 mb-md-0">
-        <a class="btn btn-primary" href="{{url_for('books')}}">Back</a>
+        <a class="btn btn-primary" href="{{url_for('members')}}">Back</a>
       </div>
     </div>
-    <form method="POST" action="{{ url_for('book_add') }}">
+    <form method="POST" action="{{ url_for('member_add') }}">
           <div class="row">
             <div class="col-sm-4 my-1">
-                <label for="BookCategory">First Name</label>
-              <input type="text" class="form-control" name="first_name" placeholder="ex. Anthony">
+                <label for="MemberFirstName">First Name</label>
+              <input type="text" class="form-control" name="first_name" placeholder="ex. Anthony" required >
             </div>
             <div class="col-sm-4 my-1">
-                <label for="BookCategory">Last Name</label>
-              <input type="text" class="form-control" name="last_name" placeholder="ex. Roussos">
+                <label for="MemberLastName">Last Name</label>
+              <input type="text" class="form-control" name="last_name" placeholder="ex. Roussos" required >
             </div>
           <div class="col-auto-4 my-1">
-            <label for="BookCategory">Role</label>
-          <select class="custom-select mr-sm-3" id="inlineFormCustomSelect" required>
+            <label for="MemberRole">Role</label>
+          <select class="custom-select mr-sm-3" name="role" id="MemberRole" required>
             <option selected hidden>Επιλέξτε...</option>
             <option value="1">Μαθητής</option>
             <option value="2">Καθηγητής</option>
@@ -29,11 +29,11 @@
         </div>
       <div class="row">
         <div class="col-sm-4 my-1">
-                <label for="BookCategory">Phone</label>
+                <label for="MemberPhone">Phone</label>
               <input type="number" class="form-control" name="phone" placeholder="ex. 6900000000">
             </div>
             <div class="col-sm-4 my-1">
-                <label for="BookCategory">Email</label>
+                <label for="MemberEmail">Email</label>
               <input type="email" class="form-control" name="email" placeholder="ex. testing@gmail.com">
             </div>
       </div>

@@ -19,7 +19,7 @@ def close_db(error):
 def index():
     return render_template('index.html')
 
-@app.route('/member/add')
+@app.route('/member/add', methods = ['GET', 'POST'])
 def member_add():
     return render_template('member-add.html')
 
@@ -69,8 +69,29 @@ def book_add():
 		print("submited", cover.filename)
 		return redirect(url_for('books'))
 
-
 	return render_template('book-add.html')
+
+
+@app.route('/book/edit/<int:id>', methods = ['GET', 'POST'])
+def book_edit(id):
+
+	db = get_db()
+	if request.method == 'GET':
+		query = 'select * from books where id=?'
+		cur = db.execute(query, [id])
+		result = cur.fetchone()
+	elif request.method == 'POST':
+		print("POST")
+		if request.files:
+			print("request files")
+		fname = request.files['cover']
+		if fname:
+			print(fname.filename)
+		else:
+			print("No file")
+		return redirect(url_for('books'))
+
+	return render_template('book-edit.html', book=result)
 
 
 @app.route('/members')

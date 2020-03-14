@@ -19,6 +19,10 @@ def close_db(error):
 def index():
     return render_template('index.html')
 
+@app.route('/member/add')
+def member_add():
+    return render_template('member-add.html')
+
 
 @app.route('/books')
 def books():

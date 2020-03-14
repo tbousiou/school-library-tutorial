@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Add Book{% endblock %}
+{% block content %}
+  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h1>Add Member</h1>
+      <div class="btn-toolbar mb-2 mb-md-0">
+        <a class="btn btn-primary" href="{{url_for('books')}}">Back</a>
+      </div>
+    </div>
+    <form method="POST" action="{{ url_for('book_add') }}">
+          <div class="row">
+            <div class="col-sm-4 my-1">
+                <label for="BookCategory">First Name</label>
+              <input type="text" class="form-control" name="first_name" placeholder="ex. Anthony">
+            </div>
+            <div class="col-sm-4 my-1">
+                <label for="BookCategory">Last Name</label>
+              <input type="text" class="form-control" name="last_name" placeholder="ex. Roussos">
+            </div>
+          <div class="col-auto-4 my-1">
+            <label for="BookCategory">Role</label>
+          <select class="custom-select mr-sm-3" id="inlineFormCustomSelect" required>
+            <option selected hidden>Επιλέξτε...</option>
+            <option value="1">Μαθητής</option>
+            <option value="2">Καθηγητής</option>
+          </select>
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-sm-4 my-1">
+                <label for="BookCategory">Phone</label>
+              <input type="number" class="form-control" name="phone" placeholder="ex. 6900000000">
+            </div>
+            <div class="col-sm-4 my-1">
+                <label for="BookCategory">Email</label>
+              <input type="email" class="form-control" name="email" placeholder="ex. testing@gmail.com">
+            </div>
+      </div>
+        <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</main>
+{% endblock %}

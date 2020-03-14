@@ -45,9 +45,12 @@ def book_add():
 		description = request.form['description']
 		author = request.form['author']
 		isbn = request.form['isbn']
+		category = request.form['category']
+		year = request.form['year']
+		copies = request.form['copies']
 
-		query = 'insert into books (title, description, author, isbn) values (?, ?, ?, ?)'
-		db.execute(query, [title, description, author, isbn])
+		query = 'insert into books (title, description, author, isbn, category, year_published, copies) values (?, ?, ?, ?, ?, ?, ?)'
+		db.execute(query, [title, description, author, isbn, category, year, copies])
 		db.commit()
 
 		print("submited", title)
